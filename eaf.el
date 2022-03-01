@@ -162,6 +162,7 @@ or `CVS', and any subdirectory that contains a file named `.nosearch'."
 	(message "%s: %s" this-dir contents)
         (setq attrs (or canonicalized
                         (nthcdr 10 (file-attributes this-dir))))
+	(message "%s %s" attrs normal-top-level-add-subdirs-inode-list)
         (unless (member attrs normal-top-level-add-subdirs-inode-list)
           (push attrs normal-top-level-add-subdirs-inode-list)
           (dolist (file contents)
