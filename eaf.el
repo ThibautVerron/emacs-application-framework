@@ -1728,12 +1728,11 @@ For a full `install-eaf.py' experience, refer to `--help' and run in a terminal.
 	(set-process-sentinel proc #'eaf--post-install-sentinel)
       (eaf--post-install))))
 
-(defun eaf--post-install-sentinel (process signal)
-  (message "%s" signal)
+(defun eaf--post-install-sentinel (process string-signal)
   (when (memq (process-status process) '(exit signal))
     (message "Running post install")
     (eaf--post-install)
-    (shell-command-sentinel process signal)))
+    (shell-command-sentinel process string-signal)))
 
 (defun eaf--symlink-directory (old new)
   (if (fboundp 'straight--symlink-recursively)
