@@ -267,6 +267,9 @@ been initialized."
   ;; Disable cursor in eaf buffer.
   (setq-local cursor-type nil)
 
+  ;; Don't promt user when exist EAF python process.
+  (setq-local confirm-kill-processes nil)
+
   (set (make-local-variable 'eaf--buffer-id) (eaf--generate-id))
   (setq-local bookmark-make-record-function #'eaf--bookmark-make-record)
 
@@ -1723,9 +1726,6 @@ It currently identifies PDF, videos, images, and mindmap file extensions."
 (advice-add #'isearch-backward :around #'eaf--isearch-backward-advisor)
 (when (and (ignore-errors (require 'counsel)) (featurep 'counsel))
   (advice-add #'counsel-minibuffer-history :around #'eaf--isearch-forward-advisor))
-
-;; Don't promt user when exist EAF python process.
-(setq confirm-kill-processes nil)
 
 (provide 'eaf)
 
