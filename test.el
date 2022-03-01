@@ -1,3 +1,10 @@
+;; To test:
+;; emacs -Q -l "test.el" &
+;;
+;; To clean up between tests:
+;; rm -rf .emacs-eaf.d/{straight/repos/emacs-application-framework/,build/eaf,eaf}
+
+
 (setq user-emacs-directory "./.emacs-eaf.d")
 
 (setq straight-use-package-by-default t
