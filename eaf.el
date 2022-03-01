@@ -147,6 +147,7 @@ start with letters or digits; it excludes any subdirectory named `RCS'
 or `CVS', and any subdirectory that contains a file named `.nosearch'."
   (let (dirs
         attrs
+	normal-top-level-add-subdirs-inode-list
         (pending (list eaf-build-dir)))
     ;; This loop does a breadth-first tree walk on DIR's subtree,
     ;; putting each subdir into DIRS as its contents are examined.
@@ -189,7 +190,8 @@ or `CVS', and any subdirectory that contains a file named `.nosearch'."
     (dolist (path load-path)
       (when (or (string-match-p "/node_modules" path)
                 (string-match-p "/dist" path))
-        (setq load-path (delete path load-path))))))
+        (setq load-path (delete path load-path))))
+    (setq load-path (cl-remove-duplicates load-path))))
 
 (eaf-add-app-dirs-to-load-path)
 
