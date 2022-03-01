@@ -159,6 +159,7 @@ or `CVS', and any subdirectory that contains a file named `.nosearch'."
                                 (w32-untranslated-canonical-name this-dir))))
         ;; The Windows version doesn't report meaningful inode numbers, so
         ;; use the canonicalized absolute file name of the directory instead.
+	(message this-dir)
         (setq attrs (or canonicalized
                         (nthcdr 10 (file-attributes this-dir))))
         (unless (member attrs normal-top-level-add-subdirs-inode-list)
