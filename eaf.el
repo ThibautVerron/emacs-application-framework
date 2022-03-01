@@ -267,7 +267,7 @@ been initialized."
   ;; Disable cursor in eaf buffer.
   (setq-local cursor-type nil)
 
-  ;; Don't promt user when exist EAF python process.
+  ;; Don't prompt user when exist EAF python process.
   (setq-local confirm-kill-processes nil)
 
   (set (make-local-variable 'eaf--buffer-id) (eaf--generate-id))
